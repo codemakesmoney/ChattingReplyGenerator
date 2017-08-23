@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Patterns>
+    <Pattern name = "A">
+        <char>A</char>
+        <width>5</width>
+        <pixel>0010001010010101111110001</pixel>
+        <emoji>:bowtie:</emoji>
+    </Pattern>
+    <Pattern name = "I">
+        <char>I</char>
+        <width>1</width>
+        <pixel>11111</pixel>
+        <emoji>:smile:</emoji>
+    </Pattern>
+    <Pattern name = "J">
+        <char>J</char>
+        <width>3</width>
+        <pixel>001001001101011</pixel>
+        <emoji>:laughing:</emoji>
+    </Pattern>
+    <Pattern name = "M">
+        <char>M</char>
+        <width>5</width>
+        <pixel>1000111011101011000110001</pixel>
+        <emoji>:blush:</emoji>
+    </Pattern>
+    <Pattern name = "N">
+        <char>N</char>
+        <width>4</width>
+        <pixel>10011101101110011001</pixel>
+        <emoji>:smiley:</emoji>
+    </Pattern>
+    <Pattern name = " ">
+        <char> </char>
+        <width>4</width>
+        <pixel>11111111111111111111</pixel>
+        <emoji> </emoji>
+    </Pattern>
+</Patterns>

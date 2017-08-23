@@ -1,0 +1,38 @@
+[
+  {
+    "char":"A",
+    "width":"5",
+    "pixel":"0010001010010101111110001",
+    "emoji":":bowtie:"
+  },
+  {
+    "char":"I",
+    "width":"1",
+    "pixel":"11111",
+    "emoji":":smile:"
+  },
+  {
+    "char":"J",
+    "width":"3",
+    "pixel":"001001001101011",
+    "emoji":":laughing:"
+  },
+  {
+    "char":"M",
+    "width":"5",
+    "pixel":"1000111011101011000110001",
+    "emoji":":blush:"
+  },
+  {
+    "char":"N",
+    "width":"4",
+    "pixel":"10011101101110011001",
+    "emoji":":smiley:"
+  },
+  {
+    "char":" ",
+    "width":"4",
+    "pixel":"11111111111111111111",
+    "emoji":" "
+  }
+]
