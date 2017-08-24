@@ -1,13 +1,16 @@
 
+import java.io.*;
 import java.util.*;
+import org.json.simple.*;
+import org.json.simple.parser.*;
 
 /**
  * Created by ziyanzha on 8/22/17.
  */
 public class PixelReplyGenerator implements ReplyGenerator{
     private Map<Character, PixelLetter> patterns;
-    private final static String PIXEL_PATTERN_JSON_FILE = "../template/PixelPatternJSON.json";
-    private final static String PIXEL_PATTERN_XML_FILE = "../template/PixelPatternJSON.json";
+    private final static String PIXEL_PATTERN_JSON_FILE = "template//PixelPatternJSON";
+    private final static String PIXEL_PATTERN_XML_FILE = "..//template//PixelPatternXML";
     private String inputStr;
     @Override
     public String getReply() {
@@ -28,11 +31,12 @@ public class PixelReplyGenerator implements ReplyGenerator{
                         if (pixelRow[j] == 1) {
                             sb.append(emoji);
                         } else {
-                            sb.append("    ");
+                            /* TODO: Solve the problem that emoji and space doesn't have same width. */
+
+                            sb.append("     ");
                         }
                     }
-                    /* TODO: Solve the problem that emoji and space doesn't have same width. */
-                    sb.append("     ");
+                    sb.append("      ");
                 }
             }
             sb.append("\n");
@@ -44,12 +48,50 @@ public class PixelReplyGenerator implements ReplyGenerator{
 
     public PixelReplyGenerator(String inputStr) {
         patterns = new HashMap<Character, PixelLetter>();
-        HardCodedPatterns();
+        //HardCodedPatterns();
+        ReadPatternsFromJSON();
         this.inputStr = inputStr;
     }
 
-    /* TODO */
+    /* TODO: find a parser without denpendencies */
     private void ReadPatternsFromJSON() {
+        JSONParser parser = new JSONParser();
+        try {
+            JSONArray jsonArray = (JSONArray) parser.parse(new FileReader(PIXEL_PATTERN_JSON_FILE));
+            Iterator<JSONObject> iterator = jsonArray.iterator();
+
+            while (iterator.hasNext()) {
+                JSONObject jsonObject = iterator.next();
+
+                Character c = ((String) jsonObject.get("char")).charAt(0);
+                Integer width = Integer.parseInt((String) jsonObject.get("width"));
+                String pixel = (String) jsonObject.get("pixel");
+                String emoji = (String) jsonObject.get("emoji");
+                Integer[][] pixelArray = new Integer[PixelLetter.LETTER_HEIGHT][width];
+                for (int i = 0; i < PixelLetter.LETTER_HEIGHT; i++) {
+                    for (int j = 0; j < width; j++) {
+                        pixelArray[i][j] = Character.getNumericValue(pixel.charAt(i* width + j));
+                    }
+                }
+
+                PixelLetter pl = new PixelLetter();
+                pl.setWidth(width);
+                pl.setEmoji(emoji);
+                pl.setPixel(pixelArray);
+
+                patterns.put(c,pl);
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+
+        }
     }
 
     /* TODO */

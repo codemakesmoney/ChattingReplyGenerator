@@ -3,31 +3,31 @@
     "char":"A",
     "width":"5",
     "pixel":"0010001010010101111110001",
-    "emoji":":bowtie:"
+    "emoji":":snowflake:"
   },
   {
     "char":"I",
     "width":"1",
     "pixel":"11111",
-    "emoji":":smile:"
+    "emoji":":sunny:"
   },
   {
     "char":"J",
     "width":"3",
     "pixel":"001001001101011",
-    "emoji":":laughing:"
+    "emoji":":umbrella:"
   },
   {
     "char":"M",
     "width":"5",
     "pixel":"1000111011101011000110001",
-    "emoji":":blush:"
+    "emoji":":cloud:"
   },
   {
     "char":"N",
     "width":"4",
     "pixel":"10011101101110011001",
-    "emoji":":smiley:"
+    "emoji":":snowman:"
   },
   {
     "char":" ",
